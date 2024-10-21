@@ -1,10 +1,9 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const SENSITIVITY = .015
+const SENSITIVITY = .008
 
-const BOB_FREQ = 2.0
+const BOB_FREQ = 3.0
 const BOB_AMP = .08
 var t_bob = .0
 

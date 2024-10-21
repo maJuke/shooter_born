@@ -1,6 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://unc361b7if3"]
+[gd_scene load_steps=9 format=3 uid="uid://unc361b7if3"]
 
 [ext_resource type="Script" path="res://PlayerController.gd" id="1_o3lxl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpnf6"]
+albedo_color = Color(0.317647, 0.501961, 0.356863, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dyle"]
+albedo_color = Color(1, 0.43, 0.4585, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4uio1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,16 +28,52 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="World" type="Node3D"]
 
+[node name="TextBox" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TextBox"]
+material_override = SubResource("StandardMaterial3D_tpnf6")
+use_collision = true
+size = Vector3(30, 0.2, 30)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="TextBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7819, 1.61984, 0.0267401)
+material_override = SubResource("StandardMaterial3D_2dyle")
+use_collision = true
+size = Vector3(0.359863, 3.09024, 29.9864)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="TextBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8461, 1.92248, -0.00516891)
+material_override = SubResource("StandardMaterial3D_2dyle")
+use_collision = true
+size = Vector3(0.359863, 3.74123, 29.9547)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="TextBox"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0889416, 1.80985, 14.742)
+material_override = SubResource("StandardMaterial3D_2dyle")
+snap = 1e-06
+use_collision = true
+size = Vector3(0.359863, 3.73611, 29.9547)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="TextBox"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.184073, 1.10372, -14.934)
+material_override = SubResource("StandardMaterial3D_2dyle")
+snap = 1e-06
+use_collision = true
+size = Vector3(0.359863, 2.44971, 29.9547)
+
+[node name="Stairs" type="Node" parent="TextBox"]
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78621, 0.255071, 0)
+use_collision = true
+size = Vector3(2.15442, 0.290039, 1)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i5tsw")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(20, 0.2, 20)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1956, 0)
