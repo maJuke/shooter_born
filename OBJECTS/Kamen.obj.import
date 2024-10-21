@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://6l8xy0wpvrey"
+path="res://.godot/imported/Kamen.obj-45bc26b9e8eb8a99bdfeb97d940de830.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Kamen.obj-45bc26b9e8eb8a99bdfeb97d940de830.mesh"]
+
+source_file="res://OBJECTS/Kamen.obj"
+dest_files=["res://.godot/imported/Kamen.obj-45bc26b9e8eb8a99bdfeb97d940de830.mesh", "res://.godot/imported/Kamen.obj-45bc26b9e8eb8a99bdfeb97d940de830.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

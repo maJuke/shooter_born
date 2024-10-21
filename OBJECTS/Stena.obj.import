@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b1s5i2kcudxsh"
+path="res://.godot/imported/Stena.obj-a07b46940e3950525b2ac9bd39f58ebf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stena.obj-a07b46940e3950525b2ac9bd39f58ebf.mesh"]
+
+source_file="res://OBJECTS/Stena.obj"
+dest_files=["res://.godot/imported/Stena.obj-a07b46940e3950525b2ac9bd39f58ebf.mesh", "res://.godot/imported/Stena.obj-a07b46940e3950525b2ac9bd39f58ebf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
