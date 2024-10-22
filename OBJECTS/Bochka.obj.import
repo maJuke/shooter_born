@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bv4maitdyy8tb"
+path="res://.godot/imported/Bochka.obj-c4a58fc4b8e08919edaa45c2a6e25849.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bochka.obj-c4a58fc4b8e08919edaa45c2a6e25849.mesh"]
+
+source_file="res://OBJECTS/Bochka.obj"
+dest_files=["res://.godot/imported/Bochka.obj-c4a58fc4b8e08919edaa45c2a6e25849.mesh", "res://.godot/imported/Bochka.obj-c4a58fc4b8e08919edaa45c2a6e25849.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
