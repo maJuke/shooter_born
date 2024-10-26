@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://unc361b7if3"]
+[gd_scene load_steps=19 format=3 uid="uid://unc361b7if3"]
 
 [ext_resource type="Script" path="res://PlayerController.gd" id="1_o3lxl"]
 [ext_resource type="ArrayMesh" uid="uid://6l8xy0wpvrey" path="res://OBJECTS/Kamen.obj" id="2_mo5vy"]
 [ext_resource type="Texture2D" uid="uid://bvacgf1u412o4" path="res://OBJECTS/Kamen.png" id="3_0q4gs"]
 [ext_resource type="ArrayMesh" uid="uid://b1s5i2kcudxsh" path="res://OBJECTS/Stena.obj" id="4_2xaas"]
 [ext_resource type="ArrayMesh" uid="uid://bv4maitdyy8tb" path="res://OBJECTS/Bochka.obj" id="5_igv2q"]
-[ext_resource type="Texture2D" uid="uid://cntq4y7l2jeo2" path="res://OBJECTS/GUN.png" id="6_2t27k"]
+[ext_resource type="Texture2D" uid="uid://cc1j143sf7ijo" path="res://OBJECTS/Polumusor/V1.png" id="6_xy42k"]
+[ext_resource type="Texture2D" uid="uid://cuo5lpov3r5iq" path="res://OBJECTS/Polumusor/2.png" id="7_d8p5p"]
+[ext_resource type="Texture2D" uid="uid://d0ph4dv0ubwt5" path="res://OBJECTS/Polumusor/3.png" id="8_1px14"]
+[ext_resource type="Texture2D" uid="uid://e8bi14j0srph" path="res://OBJECTS/Polumusor/4.png" id="9_cn7bu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_82mog"]
 
@@ -166,7 +169,22 @@ mesh = ExtResource("4_2xaas")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35211, 2.50236, -7.93988)
 mesh = ExtResource("5_igv2q")
 
-[node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(939.25, 581.25)
-scale = Vector2(2.89667, 2.89667)
-texture = ExtResource("6_2t27k")
+[node name="V1" type="Sprite2D" parent="."]
+position = Vector2(594, 287)
+scale = Vector2(0.466533, 0.466533)
+texture = ExtResource("6_xy42k")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(570, 324.75)
+scale = Vector2(0.37214, 0.37214)
+texture = ExtResource("7_d8p5p")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(461, 324)
+scale = Vector2(0.371854, 0.371854)
+texture = ExtResource("8_1px14")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(570, 329)
+scale = Vector2(0.328375, 0.328375)
+texture = ExtResource("9_cn7bu")
