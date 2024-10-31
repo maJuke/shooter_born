@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PLAYER/PlayerController.gd" id="1_ox2yr"]
 [ext_resource type="Texture2D" uid="uid://cc1j143sf7ijo" path="res://OBJECTS/Polumusor/V1.png" id="2_2jd0p"]
-[ext_resource type="Texture2D" uid="uid://cuo5lpov3r5iq" path="res://OBJECTS/Polumusor/2.png" id="3_fqh3l"]
+[ext_resource type="Texture2D" uid="uid://0j0tkxmpamjb" path="res://OBJECTS/Sprites/HPBAR.png" id="3_v24o3"]
 [ext_resource type="Texture2D" uid="uid://d0ph4dv0ubwt5" path="res://OBJECTS/Polumusor/3.png" id="4_whitx"]
 [ext_resource type="Texture2D" uid="uid://e8bi14j0srph" path="res://OBJECTS/Polumusor/4.png" id="5_d7mff"]
 
@@ -29,80 +29,68 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482065, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="Control" type="Control" parent="Head/Camera3D"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PISTOLET" type="Sprite2D" parent="Head/Camera3D/Control"]
-position = Vector2(594, 287)
-scale = Vector2(0.466533, 0.466533)
-texture = ExtResource("2_2jd0p")
-
-[node name="HEALTH_BAR_EXAMPLE" type="Sprite2D" parent="Head/Camera3D/Control"]
-position = Vector2(570, 324.75)
-scale = Vector2(0.37214, 0.37214)
-texture = ExtResource("3_fqh3l")
-
-[node name="health_bar" type="Control" parent="Head/Camera3D/Control"]
+[node name="health_bar" type="Control" parent="Head/Camera3D"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 567.0
-offset_top = 851.0
+offset_top = 850.0
 offset_right = 607.0
-offset_bottom = 891.0
+offset_bottom = 890.0
 mouse_filter = 2
 
-[node name="health_right" type="ProgressBar" parent="Head/Camera3D/Control/health_bar"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = -843.0
-offset_right = 193.0
-offset_bottom = -820.0
-theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
-step = 1.0
-value = 75.0
-show_percentage = false
+[node name="Hpbar" type="Sprite2D" parent="Head/Camera3D/health_bar"]
+position = Vector2(8, -410)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_v24o3")
 
-[node name="health_left" type="ProgressBar" parent="Head/Camera3D/Control/health_bar"]
-layout_mode = 0
-offset_left = -8.0
-offset_top = -822.0
-offset_right = -4.0
-offset_bottom = -795.0
+[node name="health_left" type="ProgressBar" parent="Head/Camera3D/health_bar"]
+show_behind_parent = true
+offset_left = 9.0
+offset_top = -794.0
+offset_right = 259.0
+offset_bottom = -744.0
 rotation = 3.14159
-scale = Vector2(44.32, 0.781866)
 theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
 step = 1.0
 value = 80.0
 show_percentage = false
 
-[node name="health_prec" type="RichTextLabel" parent="Head/Camera3D/Control/health_bar"]
-layout_mode = 0
-offset_left = -6.0
-offset_top = -845.0
-offset_right = 16.0
-offset_bottom = -805.0
-text = "80"
-tab_size = 3
+[node name="health_right" type="ProgressBar" parent="Head/Camera3D/health_bar"]
+show_behind_parent = true
+offset_left = 9.0
+offset_top = -844.0
+offset_right = 259.0
+offset_bottom = -794.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
+step = 1.0
+value = 75.0
+show_percentage = false
 
-[node name="AMMO" type="Sprite2D" parent="Head/Camera3D/Control"]
-position = Vector2(461, 324)
-scale = Vector2(0.371854, 0.371854)
-texture = ExtResource("4_whitx")
+[node name="health_prec" type="RichTextLabel" parent="Head/Camera3D/health_bar"]
+offset_left = -5.0
+offset_top = -835.0
+offset_right = 25.0
+offset_bottom = -795.0
+bbcode_enabled = true
+text = "0"
+fit_content = true
 
-[node name="PRICEL" type="Sprite2D" parent="Head/Camera3D/Control"]
-position = Vector2(570, 329)
+[node name="PISTOLET" type="Sprite2D" parent="Head/Camera3D"]
+position = Vector2(594, 286)
+scale = Vector2(0.466533, 0.466533)
+texture = ExtResource("2_2jd0p")
+
+[node name="PRICEL" type="Sprite2D" parent="Head/Camera3D"]
+position = Vector2(570, 328)
 scale = Vector2(0.328375, 0.328375)
 texture = ExtResource("5_d7mff")
+
+[node name="AMMO" type="Sprite2D" parent="Head/Camera3D"]
+position = Vector2(461, 323)
+scale = Vector2(0.371854, 0.371854)
+texture = ExtResource("4_whitx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_82mog")

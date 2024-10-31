@@ -1,38 +1,44 @@
 extends CharacterBody3D
 
+####### PLAYER CONTROLLER SETTINGS #######
 const SPEED = 6.5
 const SENSITIVITY = .008
+####### PLAYER CONTROLLER SETTINGS #######
 
+####### CAMERA BOB SETTINGS #######
 const BOB_FREQ = 2.0
 const BOB_AMP = .08
 var t_bob = .0
-
 var _was_on_floor_last_frame = false
 var _snapped_to_stairs_last_frame = false
-
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+####### CAMERA BOB SETTINGS #######
 
 ####### HP SETTINGS #######
 var health = 100
 var health_max = 100
 var health_min = 0
-
-@onready var hpBarRight = $Head/Camera3D/Control/health_bar/health_right
-@onready var hpBarLeft = $Head/Camera3D/Control/health_bar/health_left
-@onready var hpBarAmount = $Head/Camera3D/Control/health_bar/health_prec
+@onready var hpBarRight = $Head/Camera3D/health_bar/health_right
+@onready var hpBarLeft = $Head/Camera3D/health_bar/health_left
+@onready var hpBarAmount = $Head/Camera3D/health_bar/health_prec
 ####### HP SETTINGS #######
+
+@onready var pistolSprite = $Head/Camera3D/PISTOLET
+@onready var pricelSprite = $Head/Camera3D/PRICEL
+@onready var ammoSprite = $Head/Camera3D/AMMO
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	hpBarAmount.text =  str(health_max)
+	hpBarAmount.text = "[center]%s[/center]" % str(health_max)
 	hpBarRight.value = health_max
 	hpBarLeft.value = health_max
 	
 func _process(delta: float) -> void:
+	## health bars update ##
 	hpBarRight.value = health
 	hpBarLeft.value = health
-	hpBarAmount.text = str(health)
+	hpBarAmount.text = "[center]%s[/center]" % str(health)
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -98,4 +104,7 @@ func _healthManagment(amount):
 		_deathPlayer()
 
 func _deathPlayer():
-	null
+	pistolSprite.visible = not pistolSprite.visible
+	pricelSprite.visible = not pricelSprite.visible
+	ammoSprite.visible = not ammoSprite.visible
+	## Здесь добавить спрайт смерти визибл ##
