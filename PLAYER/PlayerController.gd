@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 6.5
 const SENSITIVITY = .008
 
-const BOB_FREQ = 3.0
+const BOB_FREQ = 2.0
 const BOB_AMP = .08
 var t_bob = .0
 
@@ -13,14 +13,32 @@ var _snapped_to_stairs_last_frame = false
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
+####### HP SETTINGS #######
+var health = 100
+var health_max = 100
+var health_min = 0
+
+@onready var hpBarRight = $Head/Camera3D/Control/health_bar/health_right
+@onready var hpBarLeft = $Head/Camera3D/Control/health_bar/health_left
+@onready var hpBarAmount = $Head/Camera3D/Control/health_bar/health_prec
+####### HP SETTINGS #######
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hpBarAmount.text =  str(health_max)
+	hpBarRight.value = health_max
+	hpBarLeft.value = health_max
+	
+func _process(delta: float) -> void:
+	hpBarRight.value = health
+	hpBarLeft.value = health
+	hpBarAmount.text = str(health)
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	if event.is_action_pressed("escape"):
 		get_tree().quit()
 		
@@ -68,3 +86,16 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	_snap_down_to_stairs_check()
+	
+	if Input.is_action_just_pressed("damage"):
+		_healthManagment(-10)
+		
+func _healthManagment(amount):
+	if (health + amount != health_min):
+		health += amount
+	else:
+		health = 0
+		_deathPlayer()
+
+func _deathPlayer():
+	null

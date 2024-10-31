@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://b84dkrjevwjhg"]
+
+[ext_resource type="Script" path="res://PLAYER/PlayerController.gd" id="1_ox2yr"]
+[ext_resource type="Texture2D" uid="uid://cc1j143sf7ijo" path="res://OBJECTS/Polumusor/V1.png" id="2_2jd0p"]
+[ext_resource type="Texture2D" uid="uid://cuo5lpov3r5iq" path="res://OBJECTS/Polumusor/2.png" id="3_fqh3l"]
+[ext_resource type="Texture2D" uid="uid://d0ph4dv0ubwt5" path="res://OBJECTS/Polumusor/3.png" id="4_whitx"]
+[ext_resource type="Texture2D" uid="uid://e8bi14j0srph" path="res://OBJECTS/Polumusor/4.png" id="5_d7mff"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3vi6"]
+bg_color = Color(0.34, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xakwj"]
+bg_color = Color(0.0735001, 0.63, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_82mog"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hilga"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_30l3o"]
+length = 0.8
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(-0.978148, 0, 0.207912, 0, 1, 0, -0.207912, 0, -0.978148, 0, 3.70389, -8.63589)
+script = ExtResource("1_ox2yr")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482065, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Control" type="Control" parent="Head/Camera3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PISTOLET" type="Sprite2D" parent="Head/Camera3D/Control"]
+position = Vector2(594, 287)
+scale = Vector2(0.466533, 0.466533)
+texture = ExtResource("2_2jd0p")
+
+[node name="HEALTH_BAR_EXAMPLE" type="Sprite2D" parent="Head/Camera3D/Control"]
+position = Vector2(570, 324.75)
+scale = Vector2(0.37214, 0.37214)
+texture = ExtResource("3_fqh3l")
+
+[node name="health_bar" type="Control" parent="Head/Camera3D/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 567.0
+offset_top = 851.0
+offset_right = 607.0
+offset_bottom = 891.0
+mouse_filter = 2
+
+[node name="health_right" type="ProgressBar" parent="Head/Camera3D/Control/health_bar"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -843.0
+offset_right = 193.0
+offset_bottom = -820.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
+step = 1.0
+value = 75.0
+show_percentage = false
+
+[node name="health_left" type="ProgressBar" parent="Head/Camera3D/Control/health_bar"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -822.0
+offset_right = -4.0
+offset_bottom = -795.0
+rotation = 3.14159
+scale = Vector2(44.32, 0.781866)
+theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
+step = 1.0
+value = 80.0
+show_percentage = false
+
+[node name="health_prec" type="RichTextLabel" parent="Head/Camera3D/Control/health_bar"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -845.0
+offset_right = 16.0
+offset_bottom = -805.0
+text = "80"
+tab_size = 3
+
+[node name="AMMO" type="Sprite2D" parent="Head/Camera3D/Control"]
+position = Vector2(461, 324)
+scale = Vector2(0.371854, 0.371854)
+texture = ExtResource("4_whitx")
+
+[node name="PRICEL" type="Sprite2D" parent="Head/Camera3D/Control"]
+position = Vector2(570, 329)
+scale = Vector2(0.328375, 0.328375)
+texture = ExtResource("5_d7mff")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_82mog")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_hilga")
+
+[node name="CollisionShape3DStairs" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.978148, -0.207912, 4.27562e-08, -4.37114e-08, 1.91069e-15, -1, 0.207912, -0.978148, -9.0881e-09, -2.38419e-07, -0.696225, -0.571002)
+shape = SubResource("SeparationRayShape3D_30l3o")
+
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.5, 0)

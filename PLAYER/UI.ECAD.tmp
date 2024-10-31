@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://gp3xgq7at3hu"]
+
+[ext_resource type="Texture2D" uid="uid://cc1j143sf7ijo" path="res://OBJECTS/Polumusor/V1.png" id="1_44bxn"]
+[ext_resource type="Texture2D" uid="uid://cuo5lpov3r5iq" path="res://OBJECTS/Polumusor/2.png" id="2_tmp3q"]
+[ext_resource type="Texture2D" uid="uid://d0ph4dv0ubwt5" path="res://OBJECTS/Polumusor/3.png" id="3_w2pn6"]
+[ext_resource type="Texture2D" uid="uid://e8bi14j0srph" path="res://OBJECTS/Polumusor/4.png" id="4_jxlp4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3vi6"]
+bg_color = Color(0.34, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xakwj"]
+bg_color = Color(0.0735001, 0.63, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PISTOLET" type="Sprite2D" parent="."]
+position = Vector2(594, 287)
+scale = Vector2(0.466533, 0.466533)
+texture = ExtResource("1_44bxn")
+
+[node name="HEALTH_BAR_EXAMPLE" type="Sprite2D" parent="."]
+position = Vector2(570, 324.75)
+scale = Vector2(0.37214, 0.37214)
+texture = ExtResource("2_tmp3q")
+
+[node name="health_bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 567.0
+offset_top = 851.0
+offset_right = 607.0
+offset_bottom = 891.0
+mouse_filter = 2
+
+[node name="health_right" type="ProgressBar" parent="health_bar"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -843.0
+offset_right = 21.0
+offset_bottom = -816.0
+scale = Vector2(44.32, 0.781866)
+theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
+step = 1.0
+value = 80.0
+show_percentage = false
+
+[node name="health_left" type="ProgressBar" parent="health_bar"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -822.0
+offset_right = -4.0
+offset_bottom = -795.0
+rotation = 3.14159
+scale = Vector2(44.32, 0.781866)
+theme_override_styles/background = SubResource("StyleBoxFlat_x3vi6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xakwj")
+step = 1.0
+value = 80.0
+show_percentage = false
+
+[node name="health_prec" type="RichTextLabel" parent="health_bar"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -845.0
+offset_right = 35.0
+offset_bottom = -805.0
+text = "80"
+tab_size = 3
+
+[node name="AMMO" type="Sprite2D" parent="."]
+position = Vector2(461, 324)
+scale = Vector2(0.371854, 0.371854)
+texture = ExtResource("3_w2pn6")
+
+[node name="PRICEL" type="Sprite2D" parent="."]
+position = Vector2(570, 329)
+scale = Vector2(0.328375, 0.328375)
+texture = ExtResource("4_jxlp4")
